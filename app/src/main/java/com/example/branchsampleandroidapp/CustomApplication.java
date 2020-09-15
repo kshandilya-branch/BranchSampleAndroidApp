@@ -10,10 +10,9 @@ public class CustomApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // Branch logging for debugging
-        Branch.enableLogging();
+        //Branch.enableLogging();
         // Branch object initialization
         Branch.getAutoInstance(this);
-        //Branch.getInstance(this).disableTracking(true);
     }
 
 
