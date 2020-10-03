@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         tv = findViewById(R.id.lv);
         insP = findViewById(R.id.installP);
         latP = findViewById(R.id.latestP);
+        Branch.getInstance().setIdentity("your_user_id");
     }
 
     @Override
@@ -126,12 +127,16 @@ public class MainActivity extends AppCompatActivity {
                 .logEvent(this);*/
 
 
-        // first
-        JSONObject installParams = Branch.getInstance().getFirstReferringParams();
-        insP.setText("First params : " + installParams);
-
         // latest
         JSONObject sessionParams = Branch.getInstance().getLatestReferringParams();
         latP.setText("latest params : " + sessionParams);
     }
+    
+        
+   public void onDestroy() {
+    super.onDestroy()
+    // logout
+    Branch.getInstance().logout();
+ }
+    
 }
